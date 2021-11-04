@@ -63,7 +63,7 @@ def celebrity_image_classification(new_request):
         if message:
             return apiResponse(False, message),400
         cropped_images = get_cropped_image_if_2_eyes(image_path)
-        if cropped_images == 0:
+        if len(cropped_images) == 0:
             return apiResponse(False, 'Face Not Found'),400
         combined_imgs = []
         for cropped_image in cropped_images:
